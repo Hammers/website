@@ -15,13 +15,18 @@ body{
 }
 #header{ 
     width: 840px;
-    height:60px;
-    margin:45px auto 0px auto;
+    margin:0px auto 0px auto;
     padding:0;
-    color: $myBlue;
 	background-color: $myBlue;
     font-weight: bolder;
+	color: $myOrange;
+	font-size: 50px;
+	.pageName{
+		color: $myWhite;
+		font-size: 40px;
+	}
 }
+
 #content{
     background: $myBrown; 
     width: 960px;
@@ -43,13 +48,25 @@ body{
 	font-size:14px;
 }
 #menu{
-    float: right;
-    margin: 37px 0px 0px 380px;
-    z-index: 10;
+	float: left;
+    width: 200px;
+    height: 100%;
+    margin: 40px 0px 0px 0px;
+    text-align: left; 
 }
 #menu{
+	ul{   
+		margin: 0;
+		padding: 10px 0px 0px 0px;
+		list-style: none;
+		li{ 
+			text-align: center;
+			margin: 0px 0px 10px 0px;
+			padding: 0; 
+			list-style-type: none;
+		}
+	}
 	.itemMenu{
-		float: left;
 		text-align: center;
 		min-width: 90px;
 		margin-right: -5px;
@@ -85,7 +102,6 @@ body{
     background: $myWhite; 
 }
 #rightCol{
-    float: left;
     width: 200px;
     height: 100%;
     margin: 40px 0px 0px 0px;

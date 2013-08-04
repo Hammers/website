@@ -1,6 +1,3 @@
 <div id="header">
-	<div id="menu">
-			<div class="itemMenu"> <a href="?p=home">About </a></div>
-			<div class="itemMenu"> <a href="?p=content1">Projects </a></div> 
-	</div> 
+	ryan<br/>hamlet<br/><div class="pageName">::pageName::</div>
 </div> 

@@ -1,0 +1,14 @@
+<div id="middleContent"> 
+	<h3>Projects</h3>
+    <div>
+		::foreach post posts::
+			<div class="post">
+				<h2><a href="::post.url::">::post.title::</a></h2>
+
+				<div class="date">::post.dateString::</div>
+
+				::post.body::
+			</div>
+		::end::
+    </div>
+</div> 

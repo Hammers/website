@@ -1,4 +1,4 @@
 <div id="content"> 
 	 ::use templatePage::::end::
-	 ::use 'right_col.mtt'::::end::
+	 ::use 'menu.mtt'::::end::
 </div> 
