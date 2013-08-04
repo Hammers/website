@@ -1,0 +1,5 @@
+<div id="menu">
+	    <div class="itemMenu"> <a href="?p=home">Home </a></div>
+	    <div class="itemMenu"> <a href="?p=content1">Content1 </a></div> 
+	    <div class="itemMenu"> <a href="?p=">404</a></div>  
+</div> 
