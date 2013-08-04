@@ -14,7 +14,6 @@ class Index {
     
 	public function new()
     { 
-		untyped __call__("require", "dispatch.php");
 		// set some parameters
 		templo.Loader.BASE_DIR = "tpl/";
 		templo.Loader.TMP_DIR = "tmp/";
