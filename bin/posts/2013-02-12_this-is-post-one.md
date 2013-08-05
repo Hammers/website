@@ -1,2 +1,3 @@
-<h1>This is the title</h1>
+# This is the title
+
 Blah blah blah

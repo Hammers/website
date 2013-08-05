@@ -1,29 +1,44 @@
 var myOrange = #DC5B21;
 var myWhite = #DCD8CF;
-var myBlue = #4D4D4B;
+var myBlue = #E3AE57;
 var myBrown = #282827;
 var noMargin = {margin: 0; padding: 0;}
 var rounded = {border-radius: CSS('10px 10px 0px 0px'); -moz-border-radius: CSS('10px 10px 0px 0px'); -webkit-border-radius: CSS('10px 10px 0px 0px'); -khtml-border-radius: CSS('10px 10px 0px 0px');}
 var shadow = {-webkit-box-shadow: CSS('#999 0 0 .25em'); -moz-box-shadow: CSS('#999 0 0 .25em'); box-shadow: CSS('#999 0 0 .25em');}
- 
+var titleFont = { font: CSS("48px 'Open Sans Condensed', sans-serif");}
+var postTitleFont = { font: CSS("32px 'Open Sans Condensed', sans-serif");}
+body{
+	color: $myWhite;
+	background-color: $myBrown;
+}
+
 h1{
-    font: 14px 'Open Sans Condensed', sans-serif;
-    text-transform:uppercase;
+    $titleFont;
+    text-transform: uppercase;
     margin-bottom: 24px;
+	line-height: 0.8em;
 }
 
 h2{
-    font: 48px 'Open Sans Condensed', sans-serif;
+    $postTitleFont;
 }
 
 h1 a, h2 a{
-    color:#4f4f4f !important;
+    color:$myOrange !important;
     text-decoration: none !important;
+}
+
+a{
+	color:$myBlue;
+}
+
+a:visited{
+	color:$myBlue;
 }
 
 #content{
     position: absolute;
-    font: 16px/1.5 'PT Serif', Times, Cambria, serif;
+    font: CSS("16px/1.5 'PT Serif', Times, Cambria, serif");
     width: 580px;
     left: 50%;
     margin-left: -100px;
@@ -47,26 +62,22 @@ h1 a, h2 a{
 .post{
     padding: 50px 0 15px 0;
     border-bottom: 1px solid #dfdfdf;
-}
-
-.post .date{
-    font: bold 12px 'Open Sans Condensed', sans-serif;
-    text-transform: uppercase;
-    color: #a7a7a7;
-    margin: 24px 0 30px 20px;
-    position: relative;
-}
-
-/* The calendar icon is set as a data url */
-
-.post .date:before{
-    width:18px;
-    height:18px;
-    position:absolute;
-    content:'';
-    left: -22px;
-    top: -1px;
-    background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA..')
+	.date{
+		font: CSS("bold 12px 'Open Sans Condensed', sans-serif");
+		text-transform: uppercase;
+		color: #a7a7a7;
+		margin: 24px 0 30px 20px;
+		position: relative;
+		.before{
+			width: 18px;
+			height: 18px;
+			position: absolute;
+			content: CSS("''");
+			left: -22px;
+			top: -1px;
+			background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUYxNkRBQzRBMDBDMTFFMjg1OUVDODBEQjM0QThDRDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUYxNkRBQzVBMDBDMTFFMjg1OUVDODBEQjM0QThDRDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFRjE2REFDMkEwMEMxMUUyODU5RUM4MERCMzRBOENENSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFRjE2REFDM0EwMEMxMUUyODU5RUM4MERCMzRBOENENSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsxIzYkAAABISURBVHjaYmRAgP9IbEYGTIAhz4SmAJsmnPIsaCZis4UBlzwjEQpxAiYGCgG5Nv9nwmPgfwLsQeJsYpw6RJ09SBIJRWkbIMAArvYi+VfNd6MAAAAASUVORK5CYII=");
+		}
+	}
 }
 
 aside{
@@ -78,47 +89,40 @@ aside{
     bottom: 0;
     margin-left: -460px;
     padding-top: 65px;
-}
-
-aside p.description{
-    font-size: 13px;
-    line-height: 1.8;
-    margin-bottom: 40px;
-    color:#787878;
-}
-
-/* The main navigation links */
-aside ul{
-    font: bold 18px 'Open Sans Condensed', sans-serif;
-    text-transform: uppercase;
-    list-style:none;
-}
-
-aside ul li a{
-    text-decoration:none !important;
-    display:inline-block;
-    padding:0 3px;
-    margin:2px 0 2px 10px;
-}
-
-aside ul li a:hover{
-    background-color:#389dc1;
-    color:#fff;
-}
-
-aside p.author{
-    position: absolute;
-    bottom: 20px;
-    height: 30px;
-    font-size: 12px;
-    color: #888;
+	p.description{
+		font-size: 13px;
+		line-height: 1.8em;
+		margin-bottom: 40px;
+	}
+	ul{
+		font: CSS("bold 18px 'Open Sans Condensed', sans-serif");
+		text-transform: uppercase;
+		list-style: none;
+		li a{
+			text-decoration: none !important;
+			display: CSS("inline-block");
+			padding: 0 3px;
+			margin: 2px 0 2px 10px;
+			color: $myBlue;
+		}
+		li a:hover{
+			background-color: $myOrange;
+			color: $myWhite;
+		}
+	}
+	p.author{
+		position: absolute;
+		bottom: 20px;
+		height: 30px;
+		font-size: 12px;
+	}
 }
 
 .pagination-arrow{
-    display: inline-block;
-    font: bold 16px/1 'Open Sans Condensed', sans-serif;
+    display: CSS("inline-block");
+    font: CSS("bold 116px 'Open Sans Condensed', sans-serif");
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: CSS('3px');
     margin: 20px 15px;
     color: #555 !important;
     padding: 8px 12px;
@@ -133,14 +137,14 @@ aside p.author{
 
 .pagination-arrow.older{
     padding-right: 20px;
-    float:right;
+    float: right;
 }
 
-.pagination-arrow.newer:before,
-.pagination-arrow.older:before{
-    content: '';
+.pagination-arrow.newer .before,
+.pagination-arrow.older .before{
+    content: CSS("''");
     border: 5px solid #555;
-    border-color: transparent #555 transparent transparent;
+    border-color: CSS('transparent #555 transparent transparent');
     width: 0;
     height: 0;
     position: absolute;
@@ -148,30 +152,28 @@ aside p.author{
     top: 12px;
 }
 
-.pagination-arrow.older:before{
-    left:auto;
-    right:3px;
-    border-color: transparent transparent transparent #555;
+.pagination-arrow.older .before{
+    left: 0px;
+    right: 3px;
+    border-color: CSS('transparent transparent transparent #555');
 }
 
 .message{
-    padding-top:50px;
-}
-
-.message h1{
-    font-size:36px;
-    margin-bottom: 18px;
-}
-
-.message p{
-    font-size:13px;
+    padding-top: 50px;
+	h1{
+		font-size: 36px;
+		margin-bottom: 18px;
+	}
+	p{
+		font-size: 13px;
+	}
 }
 
 .center{
-    text-align:center;
+    text-align: center;
 }
 
-/* Small tablets */
+/* Small tablets
 
 @media all and (max-width: 1024px) {
     aside{
@@ -187,7 +189,7 @@ aside p.author{
     }
 }
 
-/* Smartphones */
+/* Smartphones
 
 @media all and (max-width: 840px) {
 
@@ -225,4 +227,4 @@ aside p.author{
         padding-top: 0;
         width: 90%;
     }
-}
+} */

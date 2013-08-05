@@ -6,7 +6,7 @@
 
 				<div class="date">::post.dateString::</div>
 
-				::post.body::
+				::raw post.body::
 			</div>
 		::end::
     </div>

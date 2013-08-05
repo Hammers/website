@@ -4,7 +4,7 @@ import php.Web;
 import templo.Loader;
 import sys.FileSystem;
 import sys.io.File;
-
+//import haxe.web.Dispatch;
 
 class Index {
 	static function main()
@@ -14,6 +14,7 @@ class Index {
     
 	public function new()
     { 
+		
 		// set some parameters
 		templo.Loader.OPTIMIZED = true;
 		templo.Loader.BASE_DIR = "tpl/";
@@ -53,7 +54,7 @@ class Index {
 			post.date = Date.fromString(arr[0]);
 			post.dateString = DateTools.format(post.date, "%b %d");
 			post.url = "?p=blog&y="+DateTools.format(post.date, "%Y") + "&m=" + DateTools.format(post.date, "%m") + "&n=" + StringTools.replace(arr[1], ".md", "");
-			var content = File.getContent("posts/"+postName);
+			var content = Markdown.markdownToHtml(File.getContent("posts/" + postName));
 			arr = content.split("</h1>");
 			post.title = StringTools.replace(arr[0], "<h1>", "");
 			post.body = arr[1];
