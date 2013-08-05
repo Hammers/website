@@ -1,16 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
-    <head>  
-        <title>
-			::titlePage::
-		</title> 
-		<link rel="stylesheet" type="text/css" href="media/style.css"/>
-    </head>
-    <body>      	 
-        ::use 'header.mtt'::::end:: 
-        
-        ::use 'content.mtt'::::end::      
-        
-        ::use 'footer.mtt'::::end::       
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ryan Hamlet</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no" />
+    <meta name="description" content="Ryan Hamlet's personal blog" />
+
+    <link rel="stylesheet" type="text/css" href="media/style.css"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&subset=latin,cyrillic-ext" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <aside>
+
+        <h1><a href="www.rhamlet.com">Ryan Hamlet</a></h1>
+
+        <p class="description">My personal site and blog</p>
+
+        <ul>
+            <li><a href="?p=blog">Blog</a></li>
+            <li><a href="?p=projects">Projects</a></li>
+            <li><a href="?p=about">About</a></li>
+        </ul>
+
+        <p class="author">Ryan Hamlet is a game developer based in Cambridge</p>
+
+    </aside>
+
+    <section id="content">
+
+        ::use templatePage::::end::
+
+    </section>
+
+</body>
 </html>
