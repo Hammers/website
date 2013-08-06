@@ -173,9 +173,9 @@ aside{
     text-align: center;
 }
 
-/* Small tablets
+/* Small tablets */
 
-@media all and (max-width: 1024px) {
+@media CSS("all and (max-width: 1024px") {
     aside{
         left: 5%;
         margin-left: 0;
@@ -188,11 +188,15 @@ aside{
         width: 60%;
     }
 }
+/* Smartphones */
 
-/* Smartphones
+@media CSS("all and (max-width: 840px)") {
 
-@media all and (max-width: 840px) {
-
+	body{
+		color: $myWhite;
+		background-color: $myBrown;
+	}
+	
     h2{
         font-size:36px;
     }
@@ -227,4 +231,4 @@ aside{
         padding-top: 0;
         width: 90%;
     }
-} */
+}

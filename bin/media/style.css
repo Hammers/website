@@ -99,6 +99,8 @@ aside p.author {
 	font : bold 116px 'Open Sans Condensed', sans-serif;
 	border : 1px solid #ccc;
 	border-radius : 3px;
+	-moz-border-radius : 3px;
+	-webkit-border-radius : 3px;
 	margin : 20px 15px;
 	color : #555 !important;
 	padding : 8px 12px;
@@ -106,14 +108,14 @@ aside p.author {
 	text-transform : uppercase;
 	position : relative;
 }
-.pagination-arrow .newer {
+.pagination-arrow.newer {
 	padding-left : 20px;
 }
-.pagination-arrow .older {
+.pagination-arrow.older {
 	padding-right : 20px;
 	float : right;
 }
-.pagination-arrow .newer .before, .pagination-arrow .older .before {
+.pagination-arrow.newer .before, .pagination-arrow.older .before {
 	content : '';
 	border : 5px solid #555;
 	border-color : transparent #555 transparent transparent;
@@ -123,7 +125,7 @@ aside p.author {
 	left : 3px;
 	top : 12px;
 }
-.pagination-arrow .older .before {
+.pagination-arrow.older .before {
 	left : 0px;
 	right : 3px;
 	border-color : transparent transparent transparent #555;
@@ -140,4 +142,48 @@ aside p.author {
 }
 .center {
 	text-align : center;
+}
+@media all and (max-width: 1024px aside {
+	left : 5%;
+	margin-left : 0;
+	width : 25%;
+}
+@media all and (max-width: 1024px #content {
+	left : 35%;
+	margin-left : 0;
+	width : 60%;
+}
+@media all and (max-width: 840px) body {
+	color : #DCD8CF;
+	background-color : #282827;
+}
+@media all and (max-width: 840px) h2 {
+	font-size : 36px;
+}
+@media all and (max-width: 840px) aside {
+	margin-left : 0;
+	position : static;
+	width : 90%;
+	padding : 5% 5% 0 5%;
+	text-align : center;
+}
+@media all and (max-width: 840px) aside .description {
+	margin-bottom : 25px;
+}
+@media all and (max-width: 840px) aside li {
+	display : inline-block;
+	zoom : 1;
+	*display : inline;
+}
+@media all and (max-width: 840px) aside ul {
+	text-align : center;
+}
+@media all and (max-width: 840px) aside .author {
+	display : none;
+}
+@media all and (max-width: 840px) #content {
+	position : static;
+	padding : 5%;
+	padding-top : 0;
+	width : 90%;
 }
