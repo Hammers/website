@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no" />
     <meta name="description" content="Ryan Hamlet's personal blog" />
 
-    <link rel="stylesheet" type="text/css" href="media/style.css"/>
+    <link rel="stylesheet" type="text/css" href="::raw site::media/style.css"/>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&subset=latin,cyrillic-ext" rel="stylesheet" />
 
     <!--[if lt IE 9]>
@@ -20,14 +20,14 @@
 
     <aside>
 
-        <h1><a href="http://www.rhamlet.com"><img src="media/ryan-logo.png" alt="Ryan Hamlet"></img></a></h1>
+        <h1><a href="http://www.rhamlet.com"><img src="::raw site::media/ryan-logo.png" alt="Ryan Hamlet"></img></a></h1>
 
         <p class="description">My personal site and blog</p>
 
         <ul>
-            <li><a href="?p=blog">Blog</a></li>
-            <li><a href="?p=projects">Projects</a></li>
-            <li><a href="?p=about">About</a></li>
+            <li><a href="::site::index">Blog</a></li>
+            <li><a href="::site::projects">Projects</a></li>
+            <li><a href="::site::about">About</a></li>
         </ul>
 
         <p class="author">Powered by <a href="http://haxe.org">Haxe</a> </p>

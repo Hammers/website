@@ -12,7 +12,7 @@ class View
     {  
 		/*define a title page*/
 		context.titlePage = "Ryan Hamlet";
-		
+		context.site = "http://www.rhamlet.com/";
       	  
       	/*load the main template and make a render of your page
       	coresponding to the context you created*/  

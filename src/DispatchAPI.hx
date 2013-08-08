@@ -10,7 +10,8 @@ class DispatchAPI
 {
 	public function new() {
     }
-	function doDefault()
+	
+	function doIndex(d : Dispatch)
 	{
 		/*Create a new View , set the context of the page you want to display,
 		and make a render of the view*/
@@ -24,35 +25,55 @@ class DispatchAPI
       	view.render(); 
 	}
 	
-	function doPost(year : String, month : String, name : String)
+	function doPost(year : String, month : String, name : String, d : Dispatch)
 	{
-		var post = { findPost(year, month, name); };
-		var view = new View();
-		view.context.posts = getPosts();
+		if (year == "" || month == "" || name == "") doDefault(d);
+		else
+		{
+			var post = [findPost(year, month, name)];
+			var view = new View();
+			view.context.posts = post;
+			/*if the template that we want to request exists, initialize the context variable "templatePage" with the template name, 
+			if not, display the template coresponding to the "page_not_found"*/
+			view.context.templatePage = "blog.mtt";
+					
+			/*Make a render of the current page*/
+			view.render();
+		}
+	}
+	
+	function doProjects(d : Dispatch)
+	{
+		/*Create a new View , set the context of the page you want to display,
+		and make a render of the view*/
+      	var view = new View();
       	/*if the template that we want to request exists, initialize the context variable "templatePage" with the template name, 
       	if not, display the template coresponding to the "page_not_found"*/
-      	view.context.templatePage = "blog.mtt";
+      	view.context.templatePage = "projects.mtt";
       		    
       	/*Make a render of the current page*/
       	view.render(); 
 	}
 	
-	//For Testing on personal server
-	function doWebsite(d : Dispatch )
+	function doDefault(d : Dispatch) 
 	{
-		d.dispatch(this);
-	}
-	
-	//For Testing on personal server
-	function doBin(d : Dispatch )
-	{
-		d.dispatch(this);
+		if (d.parts[0] == "") doIndex(d);
+		else
+		{
+			var view = new View();
+			/*if the template that we want to request exists, initialize the context variable "templatePage" with the template name, 
+			if not, display the template coresponding to the "page_not_found"*/
+			view.context.templatePage = "page_not_found.mtt";
+					
+			/*Make a render of the current page*/
+			view.render();
+		}
 	}
 	
 	function getPostNames() : Array<String> 
 	{
 		var posts = FileSystem.readDirectory("posts");
-		posts.sort(function(a,b) return Reflect.compare(a.toLowerCase(), b.toLowerCase()) );
+		posts.sort(function(a,b) return Reflect.compare(b.toLowerCase(),a.toLowerCase()) );
 		return posts;
 	}
 	
