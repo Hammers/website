@@ -15,8 +15,11 @@ class DispatchAPI
 	{
 		/*Create a new View , set the context of the page you want to display,
 		and make a render of the view*/
+		var params = Web.getParams();
       	var view = new View();
-		view.context.posts = getPosts();
+		view.context.page = params.exists('page')?params.get('page'):1;
+		view.context.posts = getPosts(view.context.page);
+		view.context.pagination = hasPagination(view.context.page);
       	/*if the template that we want to request exists, initialize the context variable "templatePage" with the template name, 
       	if not, display the template coresponding to the "page_not_found"*/
       	view.context.templatePage = "blog.mtt";
@@ -114,5 +117,12 @@ class DispatchAPI
 			index++;
 		}
 		return null;
+	}
+	
+	function hasPagination(page = 1)
+	{
+		var total = getPostNames().length;
+		var arr:Dynamic = {prev:page > 1, next:total > page * 5};
+		return arr;
 	}
 }

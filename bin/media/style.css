@@ -96,13 +96,13 @@ aside p.author {
 }
 .pagination-arrow {
 	display : inline-block;
-	font : bold 116px 'Open Sans Condensed', sans-serif;
+	font : bold 16px 'Open Sans Condensed', sans-serif;
 	border : 1px solid #ccc;
 	border-radius : 3px;
 	-moz-border-radius : 3px;
 	-webkit-border-radius : 3px;
 	margin : 20px 15px;
-	color : #555 !important;
+	color : #E3AE57 !important;
 	padding : 8px 12px;
 	text-decoration : none !important;
 	text-transform : uppercase;
@@ -117,8 +117,8 @@ aside p.author {
 }
 .pagination-arrow.newer .before, .pagination-arrow.older .before {
 	content : '';
-	border : 5px solid #555;
-	border-color : transparent #555 transparent transparent;
+	border : 5px solid #E3AE57;
+	border-color : transparent #E3AE57 transparent transparent;
 	width : 0;
 	height : 0;
 	position : absolute;
@@ -128,7 +128,7 @@ aside p.author {
 .pagination-arrow.older .before {
 	left : 0px;
 	right : 3px;
-	border-color : transparent transparent transparent #555;
+	border-color : transparent transparent transparent #E3AE57;
 }
 .message {
 	padding-top : 50px;

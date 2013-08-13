@@ -9,5 +9,10 @@
 				::raw post.body::
 			</div>
 		::end::
+		
+		<a href="?page=::page - 1::" class="pagination-arrow newer" ::cond pagination.prev::>Newer</a>
+
+		<a href="?page=::page + 1::" class="pagination-arrow older" ::cond pagination.next::>Older</a>
+
     </div>
 </div> 
