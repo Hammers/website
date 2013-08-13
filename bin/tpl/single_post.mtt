@@ -1,0 +1,13 @@
+<div id="middleContent"> 
+    <div>
+		::foreach post posts::
+			<div class="post">
+				<h2>::post.title::</h2>
+
+				<div class="date">::post.dateString::</div>
+
+				::raw post.body::
+			</div>
+		::end::
+    </div>
+</div> 

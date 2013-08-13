@@ -1,8 +1,10 @@
 <div id="middleContent"> 
-    <h1>About</h1>
+	<div>
+		<h2>About</h2>
+	</div>
     <div>
 		<p>
-			This will soon be my website...
+			Ryan Hamlet is a game developer living in Cambridge.
 		</p>
     </div>
 </div> 

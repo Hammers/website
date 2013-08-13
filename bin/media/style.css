@@ -10,6 +10,7 @@ h1 {
 }
 h2 {
 	font : 32px 'Open Sans Condensed', sans-serif;
+	color : #DC5B21 !important;
 }
 h1 a, h2 a {
 	color : #DC5B21 !important;

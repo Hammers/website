@@ -11,23 +11,26 @@ class DispatchAPI
 	public function new() {
     }
 	
+	//Purpose: 	Called when "/index" is requested
+	//Takes:	d - This dispatch variable contains the remainder of the URI parts after index.
 	function doIndex(d : Dispatch)
 	{
-		/*Create a new View , set the context of the page you want to display,
-		and make a render of the view*/
+		//This gets the php GET params
 		var params = Web.getParams();
       	var view = new View();
+		//If a specific page has been requested use that, othewise show the first.
 		view.context.page = params.exists('page')?params.get('page'):1;
 		view.context.posts = getPosts(view.context.page);
 		view.context.pagination = hasPagination(view.context.page);
-      	/*if the template that we want to request exists, initialize the context variable "templatePage" with the template name, 
-      	if not, display the template coresponding to the "page_not_found"*/
       	view.context.templatePage = "blog.mtt";
-      		    
-      	/*Make a render of the current page*/
       	view.render(); 
 	}
 	
+	//Purpose: 	Called when "/year/month/postName" is requested
+	//Takes:	year - The string matched to the year section of the URI
+	//			month - The string matched to the month section of the URI
+	//			name - The string matched to the year section of the URI
+	//			d - This dispatch variable contains the remainder of the URI parts after index.
 	function doPost(year : String, month : String, name : String, d : Dispatch)
 	{
 		if (year == "" || month == "" || name == "") doDefault(d);
@@ -36,43 +39,46 @@ class DispatchAPI
 			var post = [findPost(year, month, name)];
 			var view = new View();
 			view.context.posts = post;
-			/*if the template that we want to request exists, initialize the context variable "templatePage" with the template name, 
-			if not, display the template coresponding to the "page_not_found"*/
-			view.context.templatePage = "blog.mtt";
-					
-			/*Make a render of the current page*/
+			view.context.templatePage = "single_post.mtt";
 			view.render();
 		}
 	}
 	
+	//Purpose: 	Called when "/projects" is requested
+	//Takes:	d - This dispatch variable contains the remainder of the URI parts after index.
 	function doProjects(d : Dispatch)
 	{
-		/*Create a new View , set the context of the page you want to display,
-		and make a render of the view*/
       	var view = new View();
-      	/*if the template that we want to request exists, initialize the context variable "templatePage" with the template name, 
-      	if not, display the template coresponding to the "page_not_found"*/
       	view.context.templatePage = "projects.mtt";
-      		    
-      	/*Make a render of the current page*/
       	view.render(); 
 	}
 	
+	//Purpose: 	Called when "/projects" is requested
+	//Takes:	d - This dispatch variable contains the remainder of the URI parts after index.
+	function doAbout(d : Dispatch)
+	{
+      	var view = new View();
+      	view.context.templatePage = "about.mtt";
+      	view.render(); 
+	}
+	
+	//Purpose: 	Called when "/" or "/XXX" is requested where XXX isn't matched to anything above.
+	//Takes:	d - This dispatch variable contains the remainder of the URI parts after index.
 	function doDefault(d : Dispatch) 
 	{
+		//If the URI is empty then just display the front page.
 		if (d.parts[0] == "") doIndex(d);
 		else
 		{
+			//Otherwise display a 404 page
 			var view = new View();
-			/*if the template that we want to request exists, initialize the context variable "templatePage" with the template name, 
-			if not, display the template coresponding to the "page_not_found"*/
 			view.context.templatePage = "page_not_found.mtt";
-					
-			/*Make a render of the current page*/
 			view.render();
 		}
 	}
 	
+	//Purpose: 	Get the names of all posts.
+	//Returns:	An array of all post names.
 	function getPostNames() : Array<String> 
 	{
 		var posts = FileSystem.readDirectory("posts");
@@ -80,6 +86,10 @@ class DispatchAPI
 		return posts;
 	}
 	
+	//Purpose: 	Get a given number of posts.
+	//Takes:	page - The page of posts we're requesting
+	//			perPage - The number of posts to display
+	//Returns:	An array of all posts in the given section.
 	function getPosts(page = 1, perPage = 5) : Array<Post>
 	{
 		var posts = getPostNames();
@@ -103,6 +113,11 @@ class DispatchAPI
 		return tmp;
 	}
 	
+	//Purpose: 	Find a specific post from it's date and title.
+	//Takes:	year - The year of the post from the URI
+	//			month - The month of the post from the URI
+	//			name - The name of the post from the URI
+	//Returns:	The given post if it's found or null if it doesn't exist
 	function findPost(year:String, month:String, name:String) : Post
 	{
 		var posts = getPostNames();
@@ -119,6 +134,9 @@ class DispatchAPI
 		return null;
 	}
 	
+	//Purpose: 	Decide if the given page should show page/forward backward buttons.
+	//Takes:	page - The page number
+	//Returns:	A Dyaninc containing a bool for the "next" and "prev" buttons
 	function hasPagination(page = 1)
 	{
 		var total = getPostNames().length;
